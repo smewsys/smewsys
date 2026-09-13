@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "primary": "#19B5A5",
+    "nearBlack": "#0B0D0E",
+    "darkSurface": "#15191B",
+    "white": "#FFFFFF",
+    "softSurface": "#F4F7F7",
+    "border": "#D9E1E1",
+    "mutedText": "#5F686B"
+  },
+  "spacing": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "24px",
+    "6": "32px",
+    "7": "48px",
+    "8": "64px",
+    "9": "96px",
+    "10": "128px"
+  },
+  "radius": {
+    "small": "6px",
+    "standard": "10px",
+    "large": "16px",
+    "pill": "999px"
+  },
+  "breakpoints": {
+    "mobile": "<768px",
+    "tablet": "768-1023px",
+    "desktop": "1024-1279px",
+    "largeDesktop": ">=1280px"
+  }
+}
