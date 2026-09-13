@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #19B5A5;
+  --color-brand-nearBlack: #0B0D0E;
+  --color-brand-near-black: #0B0D0E;
+  --color-brand-darkSurface: #15191B;
+  --color-brand-dark-surface: #15191B;
+  --color-brand-white: #FFFFFF;
+  --color-brand-softSurface: #F4F7F7;
+  --color-brand-soft-surface: #F4F7F7;
+  --color-brand-border: #D9E1E1;
+  --color-brand-mutedText: #5F686B;
+  --color-brand-muted-text: #5F686B;
+
+  --radius-small: 6px;
+  --radius-standard: 10px;
+  --radius-large: 16px;
+  --radius-pill: 999px;
+
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+  --spacing-9: 96px;
+  --spacing-10: 128px;
+}
+
+:root {
+  --brand-primary: #19B5A5;
+  --brand-near-black: #0B0D0E;
+  --brand-dark-surface: #15191B;
+  --brand-white: #FFFFFF;
+  --brand-soft-surface: #F4F7F7;
+  --brand-border: #D9E1E1;
+  --brand-muted-text: #5F686B;
+}
+
+html {
+  scroll-behavior: smooth;
+  color: var(--brand-near-black);
+  background-color: var(--brand-white);
+  font-family: var(--font-sans);
+}
+
+/* WCAG 2.2 AA Focus Visibility */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

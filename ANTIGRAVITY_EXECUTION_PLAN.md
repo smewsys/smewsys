@@ -13,15 +13,15 @@ Do not write production code yet.
 
 ## Phase 1 — Inspect
 Inspect the current repository/framework and identify:
-- frontend framework
-- entry point
-- routing
-- styling system
-- component architecture
-- assets
-- package manager
-- available scripts
-- existing backend/API dependencies
+- frontend framework: Next.js (App Router)
+- entry point: `src/app/layout.tsx` & `src/app/page.tsx`
+- routing: Next.js file-system routing (`src/app/`)
+- styling system: Tailwind CSS v4 (`@tailwindcss/postcss`, `@theme` token configuration)
+- component architecture: React Server Components with targeted Client Components (`"use client"`)
+- assets: SMEWSYS vector and raster brand logos in `public/brand/`
+- package manager: npm (Node.js v22.12.0, npm 11.6.2)
+- available scripts: `dev`, `build`, `start`, `lint`
+- existing backend/API dependencies: None (modular client-side enquiry hooks)
 
 Return an architecture summary.
 
