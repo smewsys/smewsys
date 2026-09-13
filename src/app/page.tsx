@@ -6,14 +6,9 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { CTASection } from "@/components/sections/CTASection";
+import { ServiceCard } from "@/components/ui/ServiceCard";
+import { services } from "@/data/services";
 import {
-  Globe,
-  Code2,
-  ShoppingCart,
-  Database,
-  Cog,
-  Cloud,
-  Sparkles,
   TrendingUp,
   Shield,
   Zap,
@@ -27,64 +22,7 @@ import {
   CheckCircle2,
   Clock,
   Headphones,
-  ArrowRight,
 } from "lucide-react";
-
-/* ------------------------------------------------------------------ */
-/*  DATA                                                               */
-/* ------------------------------------------------------------------ */
-
-const services = [
-  {
-    icon: Globe,
-    title: "Web Development",
-    description:
-      "High-performance websites and web applications built with modern frameworks, optimised for speed, accessibility, and conversion.",
-    href: "/services/web-development",
-  },
-  {
-    icon: Code2,
-    title: "Software Development",
-    description:
-      "Custom software solutions engineered to solve specific business problems — from internal tools to full-scale platforms.",
-    href: "/services/software-development",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-commerce",
-    description:
-      "Scalable online stores and commerce platforms with secure payments, inventory management, and seamless checkout experiences.",
-    href: "/services/e-commerce",
-  },
-  {
-    icon: Database,
-    title: "CMS Solutions",
-    description:
-      "Content management systems that give your team full control — headless, traditional, or hybrid architectures.",
-    href: "/services/cms-solutions",
-  },
-  {
-    icon: Cog,
-    title: "Automation",
-    description:
-      "Workflow automation and system integrations that eliminate manual processes, reduce errors, and free your team to focus on growth.",
-    href: "/services/automation",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Solutions",
-    description:
-      "Cloud infrastructure, migration, and DevOps — designed for reliability, scalability, and cost efficiency.",
-    href: "/services/cloud-solutions",
-  },
-  {
-    icon: Sparkles,
-    title: "AI Solutions",
-    description:
-      "Practical AI and machine learning integrations that enhance decision-making, automate tasks, and unlock new capabilities.",
-    href: "/services/ai-solutions",
-  },
-];
 
 const outcomes = [
   {
@@ -270,25 +208,9 @@ export default function HomePage() {
           />
 
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
-              const Icon = service.icon;
-              return (
-                <Card key={service.title} surface="white">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#19B5A5]/10">
-                    <Icon className="h-5 w-5 text-[#19B5A5]" aria-hidden="true" />
-                  </div>
-                  <h3 className="mt-5 text-[20px] sm:text-[22px] font-bold text-[#0B0D0E]">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-[15px] text-[#5F686B] leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div className="mt-6">
-                    <TextLink href={service.href}>Learn More</TextLink>
-                  </div>
-                </Card>
-              );
-            })}
+            {services.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
           </div>
 
           <div className="mt-12 text-center">
