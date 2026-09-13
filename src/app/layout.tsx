@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "From idea to impact. SMEWSYS builds scalable software, high-performance web applications, enterprise automation, cloud architectures, and AI solutions.",
   icons: {
-    icon: "/brand/smewsys_balck_transperent_logo.svg",
+    icon: "/brand/smewsys_balck_transperent_logo.png",
     apple: "/brand/smewsys_balck_transperent_logo.png",
   },
   openGraph: {

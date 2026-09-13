@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
               aria-label="SMEWSYS Home"
             >
               <Image
-                src="/brand/smewsys_balck_transperent_logo.svg"
+                src="/brand/smewsys_balck_transperent_logo.png"
                 alt="SMEWSYS logo mark"
                 width={36}
                 height={36}

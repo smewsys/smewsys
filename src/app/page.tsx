@@ -4,215 +4,500 @@ import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { SectionHeader } from "@/components/sections/SectionHeader";
+import { CTASection } from "@/components/sections/CTASection";
+import {
+  Globe,
+  Code2,
+  ShoppingCart,
+  Database,
+  Cog,
+  Cloud,
+  Sparkles,
+  TrendingUp,
+  Shield,
+  Zap,
+  Users,
+  Search,
+  ClipboardList,
+  Palette,
+  Terminal,
+  FlaskConical,
+  Rocket,
+  CheckCircle2,
+  Clock,
+  Headphones,
+  ArrowRight,
+} from "lucide-react";
+
+/* ------------------------------------------------------------------ */
+/*  DATA                                                               */
+/* ------------------------------------------------------------------ */
+
+const services = [
+  {
+    icon: Globe,
+    title: "Web Development",
+    description:
+      "High-performance websites and web applications built with modern frameworks, optimised for speed, accessibility, and conversion.",
+    href: "/services/web-development",
+  },
+  {
+    icon: Code2,
+    title: "Software Development",
+    description:
+      "Custom software solutions engineered to solve specific business problems — from internal tools to full-scale platforms.",
+    href: "/services/software-development",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce",
+    description:
+      "Scalable online stores and commerce platforms with secure payments, inventory management, and seamless checkout experiences.",
+    href: "/services/e-commerce",
+  },
+  {
+    icon: Database,
+    title: "CMS Solutions",
+    description:
+      "Content management systems that give your team full control — headless, traditional, or hybrid architectures.",
+    href: "/services/cms-solutions",
+  },
+  {
+    icon: Cog,
+    title: "Automation",
+    description:
+      "Workflow automation and system integrations that eliminate manual processes, reduce errors, and free your team to focus on growth.",
+    href: "/services/automation",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Solutions",
+    description:
+      "Cloud infrastructure, migration, and DevOps — designed for reliability, scalability, and cost efficiency.",
+    href: "/services/cloud-solutions",
+  },
+  {
+    icon: Sparkles,
+    title: "AI Solutions",
+    description:
+      "Practical AI and machine learning integrations that enhance decision-making, automate tasks, and unlock new capabilities.",
+    href: "/services/ai-solutions",
+  },
+];
+
+const outcomes = [
+  {
+    icon: TrendingUp,
+    title: "Accelerate Growth",
+    description:
+      "Launch digital products faster with engineering that scales. We build the systems so you can focus on what drives revenue.",
+  },
+  {
+    icon: Shield,
+    title: "Reduce Risk",
+    description:
+      "Reliable architecture, automated testing, and proven patterns reduce downtime and protect your critical business operations.",
+  },
+  {
+    icon: Zap,
+    title: "Increase Efficiency",
+    description:
+      "Automation and smart integrations eliminate repetitive tasks, cut operational costs, and keep your team focused on impact.",
+  },
+  {
+    icon: Users,
+    title: "Better Experiences",
+    description:
+      "Intuitive interfaces and performant systems that delight users, improve retention, and build lasting customer loyalty.",
+  },
+];
+
+const projects = [
+  {
+    title: "Enterprise Resource Platform",
+    category: "Software Development",
+    description:
+      "A custom ERP system that consolidated five legacy tools into a single unified platform, reducing operational overhead by 40%.",
+    image: null,
+  },
+  {
+    title: "Multi-Vendor Marketplace",
+    category: "E-commerce",
+    description:
+      "A scalable marketplace supporting 200+ vendors with real-time inventory, automated payouts, and a 99.9% uptime SLA.",
+    image: null,
+  },
+  {
+    title: "Workflow Automation Suite",
+    category: "Automation",
+    description:
+      "End-to-end automation of procurement and approval workflows, saving 2,000+ staff hours per quarter across three departments.",
+    image: null,
+  },
+];
+
+const processSteps = [
+  {
+    icon: Search,
+    title: "Discover",
+    description: "Understand your goals, users, constraints, and the landscape before writing a single line of code.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Plan",
+    description: "Define scope, architecture, milestones, and success criteria so every decision is intentional.",
+  },
+  {
+    icon: Palette,
+    title: "Design",
+    description: "Create interfaces and system blueprints that balance usability, aesthetics, and technical feasibility.",
+  },
+  {
+    icon: Terminal,
+    title: "Develop",
+    description: "Engineer production-grade code with clean architecture, automated testing, and continuous integration.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Test",
+    description: "Rigorous QA across devices, edge cases, performance, and security before anything reaches production.",
+  },
+  {
+    icon: Rocket,
+    title: "Launch",
+    description: "Deploy with confidence — monitoring, rollback plans, and post-launch support to ensure a smooth go-live.",
+  },
+];
+
+const whyReasons = [
+  {
+    icon: CheckCircle2,
+    title: "Engineering-First Approach",
+    description:
+      "We solve problems with architecture and code, not templates. Every solution is built for your specific requirements.",
+  },
+  {
+    icon: Clock,
+    title: "Reliable Delivery",
+    description:
+      "Transparent timelines, milestone-driven progress, and consistent communication from discovery through launch.",
+  },
+  {
+    icon: Shield,
+    title: "Built to Last",
+    description:
+      "Clean, maintainable codebases with documentation and testing — so your investment compounds over time, not decays.",
+  },
+  {
+    icon: Headphones,
+    title: "Genuine Partnership",
+    description:
+      "We work as an extension of your team, not a vendor. Your success is the only metric that matters.",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  PAGE COMPONENT                                                     */
+/* ------------------------------------------------------------------ */
 
 export default function HomePage() {
   return (
-    <div className="py-12 md:py-20">
-      <Container>
-        {/* Phase 3 Foundation Header */}
-        <div className="border-b border-[#D9E1E1] pb-10">
-          <Badge variant="primary">Phase 3 — Design Foundations</Badge>
-          <h1 className="mt-4 text-[36px] sm:text-[44px] lg:text-[52px] font-extrabold tracking-tight text-[#0B0D0E] leading-tight">
-            SMEWSYS Design System Foundations
-          </h1>
-          <p className="mt-4 max-w-2xl text-[18px] sm:text-[20px] text-[#5F686B] leading-relaxed">
-            Shared tokens, typography scale, responsive grid, primitive components, header, and footer verified according to <code className="font-mono text-[16px] text-[#0B0D0E] bg-[#F4F7F7] px-2 py-0.5 rounded-[4px]">design.md</code> and <code className="font-mono text-[16px] text-[#0B0D0E] bg-[#F4F7F7] px-2 py-0.5 rounded-[4px]">design-tokens.json</code>.
-          </p>
-        </div>
+    <>
+      {/* ============================================================ */}
+      {/* 1. HERO                                                       */}
+      {/* ============================================================ */}
+      <section className="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32">
+        <Container>
+          <div className="max-w-3xl">
+            <Badge variant="primary">Technology. Systems. Solutions.</Badge>
 
-        {/* 1. Design Tokens & Color System */}
-        <section className="py-12 border-b border-[#D9E1E1]" aria-labelledby="tokens-heading">
-          <h2 id="tokens-heading" className="text-[26px] sm:text-[32px] font-bold text-[#0B0D0E]">
-            1. Brand Color System
-          </h2>
-          <p className="mt-2 text-[16px] text-[#5F686B]">
-            Primary teal (#19B5A5) as restrained accent; white and near-black as dominant foundation.
-          </p>
+            <h1 className="mt-6 text-[36px] sm:text-[48px] lg:text-[64px] font-extrabold tracking-tight text-[#0B0D0E] leading-[1.08]">
+              We build the technology that powers your next chapter
+            </h1>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-[#19B5A5]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">Brand Teal</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#19B5A5</p>
-            </div>
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-[#0B0D0E]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">Near Black</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#0B0D0E</p>
-            </div>
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-[#15191B]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">Dark Surface</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#15191B</p>
-            </div>
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-white border border-[#D9E1E1]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">White</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#FFFFFF</p>
-            </div>
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-[#F4F7F7] border border-[#D9E1E1]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">Soft Surface</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#F4F7F7</p>
-            </div>
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-[#D9E1E1]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">Border</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#D9E1E1</p>
-            </div>
-            <div className="rounded-[10px] border border-[#D9E1E1] p-4 bg-white shadow-subtle">
-              <div className="h-14 rounded-[6px] bg-[#5F686B]" />
-              <p className="mt-3 font-semibold text-[14px] text-[#0B0D0E]">Muted Text</p>
-              <p className="font-mono text-[12px] text-[#5F686B]">#5F686B</p>
+            <p className="mt-6 max-w-xl text-[16px] sm:text-[18px] lg:text-[20px] text-[#5F686B] leading-relaxed">
+              SMEWSYS helps businesses turn ideas, operational needs, and digital opportunities into practical, scalable technology solutions.
+            </p>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button href="/contact" variant="primary" size="lg" withArrow>
+                Start a Project
+              </Button>
+              <Button href="/services" variant="secondary" size="lg">
+                View Services
+              </Button>
             </div>
           </div>
-        </section>
+        </Container>
+      </section>
 
-        {/* 2. Typography Hierarchy */}
-        <section className="py-12 border-b border-[#D9E1E1]" aria-labelledby="typography-heading">
-          <h2 id="typography-heading" className="text-[26px] sm:text-[32px] font-bold text-[#0B0D0E]">
-            2. Typography Scale (Manrope)
-          </h2>
-          <div className="mt-8 space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-[#D9E1E1] pb-4">
-              <span className="font-mono text-[13px] text-[#5F686B] sm:w-48">Display (56-72px)</span>
-              <p className="text-[44px] sm:text-[56px] lg:text-[64px] font-extrabold text-[#0B0D0E] tracking-tight leading-tight">
-                From idea to impact.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-[#D9E1E1] pb-4">
-              <span className="font-mono text-[13px] text-[#5F686B] sm:w-48">H1 (44-52px)</span>
-              <p className="text-[34px] sm:text-[44px] font-bold text-[#0B0D0E] tracking-tight">
-                Engineering Practical Systems
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-[#D9E1E1] pb-4">
-              <span className="font-mono text-[13px] text-[#5F686B] sm:w-48">H2 (32-38px)</span>
-              <p className="text-[26px] sm:text-[34px] font-bold text-[#0B0D0E]">
-                Business Needs / Real Solutions
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-[#D9E1E1] pb-4">
-              <span className="font-mono text-[13px] text-[#5F686B] sm:w-48">H3 (22-26px)</span>
-              <p className="text-[22px] sm:text-[24px] font-semibold text-[#0B0D0E]">
-                Scalable Cloud & Software Architecture
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between border-b border-[#D9E1E1] pb-4">
-              <span className="font-mono text-[13px] text-[#5F686B] sm:w-48">Body Large (18-20px)</span>
-              <p className="text-[18px] text-[#5F686B] max-w-xl">
-                SMEWSYS helps modern enterprises engineer maintainable digital products, web platforms, and automated workflows.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between pb-4">
-              <span className="font-mono text-[13px] text-[#5F686B] sm:w-48">Body (16px)</span>
-              <p className="text-[16px] text-[#5F686B] max-w-xl">
-                Standard paragraph text maintains generous line-height and accessible contrast across desktop and mobile screens.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Button Component Matrix */}
-        <section className="py-12 border-b border-[#D9E1E1]" aria-labelledby="buttons-heading">
-          <h2 id="buttons-heading" className="text-[26px] sm:text-[32px] font-bold text-[#0B0D0E]">
-            3. Button Primitives & Micro-Interactions
-          </h2>
-          <p className="mt-2 text-[16px] text-[#5F686B]">
-            Near-black primary button, bordered secondary button, and text link with 44px min touch target.
+      {/* ============================================================ */}
+      {/* 2. TRUST / PROOF                                              */}
+      {/* ============================================================ */}
+      <section className="border-y border-[#D9E1E1] bg-[#F4F7F7] py-12 sm:py-14 lg:py-16">
+        <Container>
+          <p className="text-center text-[13px] sm:text-[14px] font-semibold uppercase tracking-wider text-[#5F686B]">
+            Trusted by businesses building real products
           </p>
+          <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="flex h-12 items-center justify-center rounded-[8px] border border-[#D9E1E1] bg-white px-4"
+              >
+                <span className="text-[13px] font-semibold text-[#5F686B]/50 select-none">
+                  Client {i + 1}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button variant="primary" size="lg" withArrow>
-              Start a Project
-            </Button>
-            <Button variant="primary" size="md">
-              Start a Project
-            </Button>
-            <Button variant="secondary" size="md">
+      {/* ============================================================ */}
+      {/* 3. SERVICES                                                   */}
+      {/* ============================================================ */}
+      <section
+        className="py-20 sm:py-24 lg:py-32"
+        aria-labelledby="services-heading"
+      >
+        <Container>
+          <SectionHeader
+            label="Services"
+            heading="What We Do"
+            description="End-to-end technology services — from strategy and design through engineering, deployment, and ongoing support."
+          />
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <Card key={service.title} surface="white">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#19B5A5]/10">
+                    <Icon className="h-5 w-5 text-[#19B5A5]" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 text-[20px] sm:text-[22px] font-bold text-[#0B0D0E]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-[15px] text-[#5F686B] leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="mt-6">
+                    <TextLink href={service.href}>Learn More</TextLink>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button href="/services" variant="secondary" size="md">
               View All Services
             </Button>
-            <Button variant="primary" size="md" isLoading>
-              Submitting
-            </Button>
-            <Button variant="secondary" size="md" disabled>
-              Disabled Action
-            </Button>
-            <TextLink href="/services">View Project Details</TextLink>
           </div>
-        </section>
+        </Container>
+      </section>
 
-        {/* 4. Base Card Component Matrix */}
-        <section className="py-12 border-b border-[#D9E1E1]" aria-labelledby="cards-heading">
-          <h2 id="cards-heading" className="text-[26px] sm:text-[32px] font-bold text-[#0B0D0E]">
-            4. Base Card System
-          </h2>
-          <p className="mt-2 text-[16px] text-[#5F686B]">
-            1px border (#D9E1E1), 12px radius, subtle hover lift, and surface variants.
-          </p>
+      {/* ============================================================ */}
+      {/* 4. BUSINESS NEEDS / REAL SOLUTIONS                            */}
+      {/* ============================================================ */}
+      <section
+        className="border-y border-[#D9E1E1] bg-[#F4F7F7] py-20 sm:py-24 lg:py-32"
+        aria-labelledby="outcomes-heading"
+      >
+        <Container>
+          <SectionHeader
+            align="center"
+            label="Outcomes"
+            heading="Business Needs. Real Solutions."
+            description="Technology should drive measurable business outcomes — not just look good in a demo. Here's what working with SMEWSYS means for your organisation."
+          />
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card surface="white">
-              <Badge variant="primary">White Surface</Badge>
-              <h3 className="mt-4 text-[20px] font-bold text-[#0B0D0E]">Standard Service Card</h3>
-              <p className="mt-2 text-[15px] text-[#5F686B] leading-relaxed">
-                Default card used for service categories, portfolio previews, and technical capability highlights.
-              </p>
-              <div className="mt-6">
-                <TextLink href="/services">Learn more</TextLink>
-              </div>
-            </Card>
-
-            <Card surface="soft">
-              <Badge variant="neutral">Soft Surface</Badge>
-              <h3 className="mt-4 text-[20px] font-bold text-[#0B0D0E]">Outcome Card</h3>
-              <p className="mt-2 text-[15px] text-[#5F686B] leading-relaxed">
-                Subtle #F4F7F7 background providing visual rhythm without distracting decorative noise.
-              </p>
-              <div className="mt-6">
-                <TextLink href="/work">Explore case studies</TextLink>
-              </div>
-            </Card>
-
-            <Card surface="dark">
-              <Badge variant="dark" className="border-[#2A3135] text-[#19B5A5]">Dark Surface</Badge>
-              <h3 className="mt-4 text-[20px] font-bold text-white">System Card</h3>
-              <p className="mt-2 text-[15px] text-[#A0ABAE] leading-relaxed">
-                Used in highlighted sections, architecture overviews, and high-impact calls to action.
-              </p>
-              <div className="mt-6">
-                <Button variant="primary" size="sm" className="bg-[#19B5A5] text-[#0B0D0E] hover:bg-[#1fd3c1]">
-                  Contact Us
-                </Button>
-              </div>
-            </Card>
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {outcomes.map((outcome) => {
+              const Icon = outcome.icon;
+              return (
+                <Card
+                  key={outcome.title}
+                  surface="white"
+                  className="border-[#D9E1E1]"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#19B5A5]/10">
+                    <Icon className="h-5 w-5 text-[#19B5A5]" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 text-[20px] sm:text-[22px] font-bold text-[#0B0D0E]">
+                    {outcome.title}
+                  </h3>
+                  <p className="mt-2 text-[15px] text-[#5F686B] leading-relaxed">
+                    {outcome.description}
+                  </p>
+                </Card>
+              );
+            })}
           </div>
-        </section>
+        </Container>
+      </section>
 
-        {/* 5. Responsive Grid & Verification Status */}
-        <section className="py-12" aria-labelledby="grid-heading">
-          <h2 id="grid-heading" className="text-[26px] sm:text-[32px] font-bold text-[#0B0D0E]">
-            5. Responsive Grid & Layout Discipline
-          </h2>
-          <p className="mt-2 text-[16px] text-[#5F686B]">
-            Centered container (max 1280px), 12-column desktop, 8-column tablet, 4-column mobile grid.
-          </p>
+      {/* ============================================================ */}
+      {/* 5. SELECTED WORK                                              */}
+      {/* ============================================================ */}
+      <section
+        className="py-20 sm:py-24 lg:py-32"
+        aria-labelledby="work-heading"
+      >
+        <Container>
+          <SectionHeader
+            label="Portfolio"
+            heading="Selected Work"
+            description="Real projects, real outcomes. Here's a look at some of the systems we've built for businesses like yours."
+          />
 
-          <div className="mt-8 rounded-[12px] border border-[#D9E1E1] bg-[#F4F7F7] p-6">
-            <div className="flex items-center gap-3">
-              <CheckCircle2 className="h-6 w-6 text-[#19B5A5]" />
-              <span className="text-[17px] font-bold text-[#0B0D0E]">
-                Phase 3 Shared Design Foundations Ready
-              </span>
+          <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {projects.map((project) => (
+              <Card key={project.title} surface="white" className="flex flex-col">
+                {/* Image placeholder */}
+                <div className="mb-6 aspect-[16/10] w-full rounded-[8px] bg-[#F4F7F7] border border-[#D9E1E1] flex items-center justify-center">
+                  <span className="text-[13px] font-medium text-[#5F686B]/40 select-none">
+                    Project Image
+                  </span>
+                </div>
+
+                <Badge variant="outline" className="self-start">
+                  {project.category}
+                </Badge>
+                <h3 className="mt-3 text-[20px] sm:text-[22px] font-bold text-[#0B0D0E]">
+                  {project.title}
+                </h3>
+                <p className="mt-2 flex-1 text-[15px] text-[#5F686B] leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="mt-6">
+                  <TextLink href="/work">View Project</TextLink>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button href="/work" variant="secondary" size="md">
+              View All Work
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 6. PROCESS                                                    */}
+      {/* ============================================================ */}
+      <section
+        className="border-y border-[#D9E1E1] bg-[#F4F7F7] py-20 sm:py-24 lg:py-32"
+        aria-labelledby="process-heading"
+      >
+        <Container>
+          <SectionHeader
+            align="center"
+            label="Process"
+            heading="How We Work"
+            description="A structured, transparent process that keeps projects on track and delivers results — every time."
+          />
+
+          <div className="relative mt-14">
+            {/* Connector line — desktop only */}
+            <div
+              className="absolute top-[52px] left-[calc(8.33%+22px)] right-[calc(8.33%+22px)] hidden h-px bg-[#D9E1E1] lg:block"
+              aria-hidden="true"
+            />
+
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <div
+                    key={step.title}
+                    className="relative flex flex-col items-center text-center"
+                  >
+                    {/* Step number + icon */}
+                    <div className="relative z-10 flex h-[44px] w-[44px] items-center justify-center rounded-full border-2 border-[#19B5A5] bg-white">
+                      <Icon className="h-5 w-5 text-[#19B5A5]" aria-hidden="true" />
+                    </div>
+
+                    <span className="mt-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#0B0D0E] text-[11px] font-bold text-white">
+                      {index + 1}
+                    </span>
+
+                    <h3 className="mt-3 text-[18px] sm:text-[20px] font-bold text-[#0B0D0E]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-[14px] text-[#5F686B] leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
-            <p className="mt-2 text-[14px] text-[#5F686B]">
-              Ready for Phase 4 (Home page baseline implementation per <code className="font-mono text-[#0B0D0E]">prompts/01-home.md</code>).
-            </p>
           </div>
-        </section>
-      </Container>
-    </div>
+
+          <div className="mt-12 text-center">
+            <Button href="/process" variant="secondary" size="md">
+              Learn About Our Process
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 7. WHY SMEWSYS                                                */}
+      {/* ============================================================ */}
+      <section
+        className="bg-[#0B0D0E] py-20 sm:py-24 lg:py-32"
+        aria-labelledby="why-heading"
+      >
+        <Container>
+          <SectionHeader
+            align="center"
+            dark
+            label="Why Us"
+            heading="Why SMEWSYS"
+            description="We're not a template shop and we're not a body-shop. We're an engineering team that cares about building the right thing, the right way."
+          />
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {whyReasons.map((reason) => {
+              const Icon = reason.icon;
+              return (
+                <Card
+                  key={reason.title}
+                  surface="dark"
+                  className="border-[#2A3135]"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#19B5A5]/15">
+                    <Icon className="h-5 w-5 text-[#19B5A5]" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 text-[20px] sm:text-[22px] font-bold text-white">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-2 text-[15px] text-[#A0ABAE] leading-relaxed">
+                    {reason.description}
+                  </p>
+                </Card>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 8. CLOSING CTA                                                */}
+      {/* ============================================================ */}
+      <CTASection
+        heading="Ready to start your next project?"
+        description="Whether you have a detailed brief or just an idea, we'd love to hear about it. Let's build something that matters."
+        primaryLabel="Start a Project"
+        primaryHref="/contact"
+        secondaryLabel="Get in Touch"
+        secondaryHref="/contact"
+      />
+    </>
   );
 }
-

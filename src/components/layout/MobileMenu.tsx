@@ -49,7 +49,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           className="flex items-center gap-2.5 text-[20px] font-bold tracking-tight text-[#0B0D0E]"
         >
           <Image
-            src="/brand/smewsys_balck_transperent_logo.svg"
+            src="/brand/smewsys_balck_transperent_logo.png"
             alt="SMEWSYS logo"
             width={32}
             height={32}
